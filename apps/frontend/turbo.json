@@ -1,0 +1,20 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "deploy": {
+      "dependsOn": [
+        "quickcheck",
+        // Set frontend deploy script to only run after backends are deployed, this make sure we have the (new) backend server for SSG.
+        "^build",
+        "backend#deploy",
+        "backend-convex#deploy"
+      ]
+    },
+    // Waits for dependency project to emit tsc first
+    "quickcheck": {
+      "dependsOn": [
+        "^quickcheck"
+      ]
+    }
+  }
+}

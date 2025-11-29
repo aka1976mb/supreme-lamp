@@ -1,0 +1,59 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+.pnpm-store
+
+# testing
+coverage/
+lib-cov/
+
+# dev/builds/outputs
+.output/
+.out/
+.data/
+.nuxt/
+.next/
+.nitro/
+.cache/
+dist
+i18n.cache
+
+# misc
+.DS_Store/
+.fleet/
+.idea/
+temp
+tmp
+logs
+tsconfig.tsbuildinfo
+*.log
+*.pem
+# Un-ignore pems in locals/common/dev
+!locals/common/dev/*
+
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env.local
+.env.*.local
+
+# turbo
+.turbo/
+
+# cloud services
+.vercel/
+.netlify/
+
+# sst
+.sst/
+
+# https://github.com/pnpm/pnpm/issues/7330
+tsx-0/
+v8-compile-cache*/
+node-compile-cache/

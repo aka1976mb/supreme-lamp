@@ -1,0 +1,4 @@
+{
+  "extends": "@local/tsconfig/vue.tsconfig.json",
+  "include": ["."]
+}

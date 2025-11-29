@@ -1,0 +1,18 @@
+{
+  "extends": "@local/tsconfig/base.tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "types": [
+      "node",
+      "vitest"
+    ],
+    "emitDeclarationOnly": true,
+    "outDir": ".output/tsc"
+  },
+  "include": [
+    "./convex/**/*",
+    "./functions/**/*",
+    "./utils/**/*"
+  ],
+  "exclude": ["./convex/_generated"]
+}
