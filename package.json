@@ -1,0 +1,62 @@
+{
+  "name": "starter-monorepo",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.12.4",
+  "engines": {
+    "node": ">=20.13.1"
+  },
+  "scripts": {
+    "lint": "turbo run lint",
+    "test:types": "turbo run test:types",
+    "quickcheck": "turbo run quickcheck",
+    "dev": "pnpm run dev:noConvex",
+    "dev:noConvex": "dotenvx run -- turbo run dev --filter=!backend-convex",
+    "dev:full": "dotenvx run -- turbo run dev:prepare && dotenvx run -- turbo run dev",
+    "devSST": "dotenvx run -f .env.sst -f .env -- sst dev \"pnpm -F=frontend run dev\"",
+    "build": "dotenvx run -- turbo run build",
+    "deploy": "dotenvx run -- turbo run deploy",
+    "i18n": "pnpm dlx lingo.dev run",
+    "prepare": "simple-git-hooks"
+  },
+  "dependencies": {
+    "pathe": "^2.0.3",
+    "sst": "^3.17.8",
+    "std-env": "^3.9.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.16.1",
+    "@dotenvx/dotenvx": "1.11.4",
+    "@namesmt/utils": "^0.5.14",
+    "@types/aws-lambda": "^8.10.150",
+    "@types/node": "^22.15.34",
+    "@unocss/eslint-plugin": "^66.3.2",
+    "eslint": "^9.30.0",
+    "frontend": "workspace:*",
+    "lint-staged": "^16.1.2",
+    "simple-git-hooks": "^2.13.0",
+    "tsx": "^4.20.3",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "is-arguments": "npm:@nolyfill/is-arguments@^1.0.44",
+      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
+      "is-generator-function": "npm:@nolyfill/is-generator-function@^1.0.44",
+      "is-typed-array": "npm:@nolyfill/is-typed-array@^1.0.44",
+      "isarray": "npm:@nolyfill/isarray@^1.0.44",
+      "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
+      "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
+      "string.prototype.codepointat": "npm:@nolyfill/string.prototype.codepointat@^1.0.44",
+      "which-typed-array": "npm:@nolyfill/which-typed-array@^1.0.44"
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

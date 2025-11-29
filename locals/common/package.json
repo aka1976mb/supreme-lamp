@@ -1,0 +1,18 @@
+{
+  "name": "@local/common",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "test:types": "tsc --noEmit --skipLibCheck",
+    "quickcheck": "pnpm run lint && pnpm run test:types"
+  },
+  "dependencies": {
+    "pathe": "^2.0.3"
+  },
+  "devDependencies": {
+    "@local/tsconfig": "workspace:*",
+    "dotenv": "^16.6.1"
+  }
+}
