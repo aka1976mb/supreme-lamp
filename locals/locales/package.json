@@ -1,0 +1,21 @@
+{
+  "name": "@local/locales",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "test:types": "tsc --noEmit --skipLibCheck",
+    "quickcheck": "pnpm run lint && pnpm run test:types",
+    "dev": "tsx watch --include \"src/**/*\" entry.ts",
+    "postinstall": "tsx entry.ts"
+  },
+  "dependencies": {
+    "petite-vue-i18n": "^11.1.4",
+    "unplugin-sheet-i18n": "^0.4.15",
+    "vue": "^3.5.14"
+  },
+  "devDependencies": {
+    "@local/tsconfig": "workspace:*"
+  }
+}
